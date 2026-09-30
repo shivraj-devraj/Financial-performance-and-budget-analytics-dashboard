@@ -1,0 +1,119 @@
+table,check,result,affected_rows,notes
+departments,standardize_column_names,INFO,0,Department_ID -> department_id; Department_Name -> department_name; Department_Budget -> department_budget; Head_of_Department -> head_of_department; Number_of_Employees -> number_of_employees; Department_Goals -> department_goals; Location -> location
+projects,remove_verified_export_index,INFO,10,Removed `Unnamed: 0`; its values exactly matched 0 through row_count - 1.
+upcoming_projects,source_filename,ISSUE,0,Read `upcoming projects.csv` with a space; only the cleaned output uses underscores.
+employees,numeric_conversion:employee_id,INFO,10,Converted populated values to numeric; invalid values retained as source text: []
+employees,numeric_conversion:salary,INFO,10,Converted populated values to numeric; invalid values retained as source text: []
+employees,datetime_conversion:hire_date,INFO,10,Converted populated values to datetime; invalid values retained as source text: []
+employees,numeric_conversion:department_id,INFO,10,Converted populated values to numeric; invalid values retained as source text: []
+departments,numeric_conversion:department_id,INFO,5,Converted populated values to numeric; invalid values retained as source text: []
+departments,numeric_conversion:department_budget,INFO,5,Converted populated values to numeric; invalid values retained as source text: []
+departments,numeric_conversion:number_of_employees,INFO,5,Converted populated values to numeric; invalid values retained as source text: []
+projects,numeric_conversion:project_id,INFO,10,Converted populated values to numeric; invalid values retained as source text: []
+projects,numeric_conversion:project_budget,INFO,10,Converted populated values to numeric; invalid values retained as source text: []
+projects,datetime_conversion:start_date,INFO,10,Converted populated values to datetime; invalid values retained as source text: []
+projects,datetime_conversion:end_date,INFO,10,Converted populated values to datetime; invalid values retained as source text: []
+projects,numeric_conversion:department_id,INFO,10,Converted populated values to numeric; invalid values retained as source text: []
+project_assignments,numeric_conversion:assignment_id,INFO,10,Converted populated values to numeric; invalid values retained as source text: []
+project_assignments,numeric_conversion:employee_id,INFO,10,Converted populated values to numeric; invalid values retained as source text: []
+project_assignments,numeric_conversion:project_id,INFO,10,Converted populated values to numeric; invalid values retained as source text: []
+completed_projects,numeric_conversion:project_id,INFO,4,Converted populated values to numeric; invalid values retained as source text: []
+completed_projects,numeric_conversion:project_budget,INFO,4,Converted populated values to numeric; invalid values retained as source text: []
+completed_projects,datetime_conversion:project_start_date,INFO,4,Converted populated values to datetime; invalid values retained as source text: []
+completed_projects,datetime_conversion:project_end_date,INFO,4,Converted populated values to datetime; invalid values retained as source text: []
+completed_projects,numeric_conversion:department_id,INFO,4,Converted populated values to numeric; invalid values retained as source text: []
+upcoming_projects,numeric_conversion:project_id,INFO,6,Converted populated values to numeric; invalid values retained as source text: []
+upcoming_projects,numeric_conversion:project_budget,INFO,6,Converted populated values to numeric; invalid values retained as source text: []
+upcoming_projects,datetime_conversion:project_start_date,INFO,6,Converted populated values to datetime; invalid values retained as source text: []
+upcoming_projects,datetime_conversion:project_end_date,INFO,6,Converted populated values to datetime; invalid values retained as source text: []
+upcoming_projects,numeric_conversion:department_id,INFO,6,Converted populated values to numeric; invalid values retained as source text: []
+employees,missing_values:employee_id,PASS,0,Missing cells: 0.
+employees,missing_values:first_name,PASS,0,Missing cells: 0.
+employees,missing_values:last_name,PASS,0,Missing cells: 0.
+employees,missing_values:email,PASS,0,Missing cells: 0.
+employees,missing_values:job_title,PASS,0,Missing cells: 0.
+employees,missing_values:salary,PASS,0,Missing cells: 0.
+employees,missing_values:hire_date,PASS,0,Missing cells: 0.
+employees,missing_values:department_id,PASS,0,Missing cells: 0.
+employees,duplicate_rows,PASS,0,Rows participating in an exact duplicate: 0.
+employees,primary_key:employee_id,PASS,0,Null key rows: 0; duplicate key rows: 0.
+employees,invalid_ids:employee_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+employees,invalid_ids:department_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+employees,invalid_dates:hire_date,PASS,0,Unparseable non-null date values: [].
+departments,missing_values:department_id,PASS,0,Missing cells: 0.
+departments,missing_values:department_name,PASS,0,Missing cells: 0.
+departments,missing_values:department_budget,PASS,0,Missing cells: 0.
+departments,missing_values:head_of_department,PASS,0,Missing cells: 0.
+departments,missing_values:number_of_employees,PASS,0,Missing cells: 0.
+departments,missing_values:department_goals,PASS,0,Missing cells: 0.
+departments,missing_values:location,PASS,0,Missing cells: 0.
+departments,duplicate_rows,PASS,0,Rows participating in an exact duplicate: 0.
+departments,primary_key:department_id,PASS,0,Null key rows: 0; duplicate key rows: 0.
+departments,invalid_ids:department_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+departments,negative_or_nonnumeric_budget:department_budget,PASS,0,Nonnumeric values: []; negative values: [].
+projects,missing_values:project_id,PASS,0,Missing cells: 0.
+projects,missing_values:project_name,PASS,0,Missing cells: 0.
+projects,missing_values:project_budget,PASS,0,Missing cells: 0.
+projects,missing_values:start_date,PASS,0,Missing cells: 0.
+projects,missing_values:end_date,PASS,0,Missing cells: 0.
+projects,missing_values:department_id,PASS,0,Missing cells: 0.
+projects,duplicate_rows,PASS,0,Rows participating in an exact duplicate: 0.
+projects,primary_key:project_id,PASS,0,Null key rows: 0; duplicate key rows: 0.
+projects,invalid_ids:project_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+projects,invalid_ids:department_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+projects,negative_or_nonnumeric_budget:project_budget,PASS,0,Nonnumeric values: []; negative values: [].
+projects,invalid_dates:start_date,PASS,0,Unparseable non-null date values: [].
+projects,invalid_dates:end_date,PASS,0,Unparseable non-null date values: [].
+projects,"start_after_end:start_date,end_date",PASS,0,Rows with start date later than end date: [].
+project_assignments,missing_values:assignment_id,PASS,0,Missing cells: 0.
+project_assignments,missing_values:employee_id,PASS,0,Missing cells: 0.
+project_assignments,missing_values:project_id,PASS,0,Missing cells: 0.
+project_assignments,duplicate_rows,PASS,0,Rows participating in an exact duplicate: 0.
+project_assignments,primary_key:assignment_id,PASS,0,Null key rows: 0; duplicate key rows: 0.
+project_assignments,invalid_ids:assignment_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+project_assignments,invalid_ids:employee_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+project_assignments,invalid_ids:project_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+completed_projects,missing_values:project_id,PASS,0,Missing cells: 0.
+completed_projects,missing_values:project_name,PASS,0,Missing cells: 0.
+completed_projects,missing_values:project_budget,PASS,0,Missing cells: 0.
+completed_projects,missing_values:project_start_date,PASS,0,Missing cells: 0.
+completed_projects,missing_values:project_end_date,PASS,0,Missing cells: 0.
+completed_projects,missing_values:department_id,PASS,0,Missing cells: 0.
+completed_projects,duplicate_rows,PASS,0,Rows participating in an exact duplicate: 0.
+completed_projects,primary_key:project_id,PASS,0,Null key rows: 0; duplicate key rows: 0.
+completed_projects,invalid_ids:project_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+completed_projects,invalid_ids:department_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+completed_projects,negative_or_nonnumeric_budget:project_budget,PASS,0,Nonnumeric values: []; negative values: [].
+completed_projects,invalid_dates:project_start_date,PASS,0,Unparseable non-null date values: [].
+completed_projects,invalid_dates:project_end_date,PASS,0,Unparseable non-null date values: [].
+completed_projects,"start_after_end:project_start_date,project_end_date",PASS,0,Rows with start date later than end date: [].
+upcoming_projects,missing_values:project_id,PASS,0,Missing cells: 0.
+upcoming_projects,missing_values:project_name,PASS,0,Missing cells: 0.
+upcoming_projects,missing_values:project_budget,PASS,0,Missing cells: 0.
+upcoming_projects,missing_values:project_start_date,PASS,0,Missing cells: 0.
+upcoming_projects,missing_values:project_end_date,PASS,0,Missing cells: 0.
+upcoming_projects,missing_values:department_id,PASS,0,Missing cells: 0.
+upcoming_projects,missing_values:project_lead,PASS,0,Missing cells: 0.
+upcoming_projects,duplicate_rows,PASS,0,Rows participating in an exact duplicate: 0.
+upcoming_projects,primary_key:project_id,PASS,0,Null key rows: 0; duplicate key rows: 0.
+upcoming_projects,invalid_ids:project_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+upcoming_projects,invalid_ids:department_id,PASS,0,IDs must be populated positive whole numbers; invalid values: [].
+upcoming_projects,negative_or_nonnumeric_budget:project_budget,PASS,0,Nonnumeric values: []; negative values: [].
+upcoming_projects,invalid_dates:project_start_date,PASS,0,Unparseable non-null date values: [].
+upcoming_projects,invalid_dates:project_end_date,PASS,0,Unparseable non-null date values: [].
+upcoming_projects,"start_after_end:project_start_date,project_end_date",PASS,0,Rows with start date later than end date: [].
+employees,foreign_key:department_id->departments.department_id,PASS,0,Unmatched values: [].
+projects,foreign_key:department_id->departments.department_id,PASS,0,Unmatched values: [].
+project_assignments,foreign_key:employee_id->employees.employee_id,PASS,0,Unmatched values: [].
+project_assignments,foreign_key:project_id->projects.project_id,PASS,0,Unmatched values: [].
+completed_projects,foreign_key:project_id->projects.project_id,PASS,0,Unmatched values: [].
+completed_projects,foreign_key:department_id->departments.department_id,PASS,0,Unmatched values: [].
+upcoming_projects,foreign_key:project_id->projects.project_id,PASS,0,Unmatched values: [].
+upcoming_projects,foreign_key:department_id->departments.department_id,PASS,0,Unmatched values: [].
+departments,reported_vs_observed_employee_count,ISSUE,1,"department_id=3: reported=3, observed=2"
+completed_projects,project_values_vs_master,ISSUE,1,project_id=204: department_id
+upcoming_projects,project_values_vs_master,ISSUE,6,"project_id=201: department_id, project_start_date; project_id=202: project_start_date; project_id=203: project_start_date; project_id=210: project_start_date; project_id=206: project_start_date; project_id=207: project_start_date"
+project_status_tables,status_id_partition,PASS,0,Overlap=[]; not in either status table=[]; not in projects.csv=[].
+project_assignments,employee_assignment_coverage,PASS,0,Employees without an assignment: [].
+project_assignments,project_assignment_coverage,PASS,0,Projects without an assignment: [].
+upcoming_projects,upcoming_label_vs_run_date,ISSUE,6,"End dates before run date 2026-09-30: ['201', '202', '203', '210', '206', '207']. This is reported only; no status reclassification is performed."
